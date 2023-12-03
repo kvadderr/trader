@@ -1,12 +1,13 @@
 import { useEffect, useRef } from 'react';
 import { useAppSelector } from '../../../store/storeHooks';
-import { selectCurrentSymbol } from '../../../store/slices/authSlice';
+import { selectCurrentSymbol, selectCurrentLang } from '../../../store/slices/authSlice';
 
 interface TradingViewWidgetProps {}
 
 const TradingViewWidget: React.FC<TradingViewWidgetProps> = () => {
   const onLoadScriptRef = useRef<(() => void) | null>(null);
   const symbol = useAppSelector(selectCurrentSymbol);
+  const lang = useAppSelector(selectCurrentLang);
   console.log('symbol', symbol);
 
   useEffect(() => {
@@ -41,7 +42,7 @@ const TradingViewWidget: React.FC<TradingViewWidgetProps> = () => {
           timezone: 'Etc/UTC',
           theme: 'dark',
           style: '3',
-          locale: 'ru',
+          locale: lang,
           enable_publishing: false,
           hide_legend: true,
           hide_side_toolbar: true,
@@ -49,7 +50,7 @@ const TradingViewWidget: React.FC<TradingViewWidgetProps> = () => {
         });
       }
     }
-  }, [symbol]);
+  }, [symbol, lang]);
 
   return (
     <div className='tradingview-widget-container' style={{ height: '100%', width: '100%' }}>

@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import { Space, Tag } from 'antd';
 const { CheckableTag } = Tag;
 import { pairItems } from '../../../constants/pairItems';
+import { pairCategory } from '../../../constants/pairCategory';
 import { useAppDispatch } from '../../../store/storeHooks';
 import { setCurrentSymbol } from '../../../store/slices/authSlice';
+import PairCoinItem from './PairCoinItem';
+import { useTranslation } from 'react-i18next';
 
 const PairCoin = () => {
-  const [selectedTag, setSelectedTag] = useState<string | null>(pairItems[0].symbol);
+  const [selectedTag, setSelectedTag] = useState<string | null>(pairCategory[0]);
   const dispath = useAppDispatch();
-
+  const { t } = useTranslation();
   const handleChange = (tag: string, checked: boolean) => {
     dispath(setCurrentSymbol(tag))
     if (checked) {
@@ -22,17 +25,22 @@ const PairCoin = () => {
 
   return (
     <>
-      <Space size={[0, 8]} wrap>
-        {pairItems.map((pair) => (
+      <Space size={[0, 10]}>
+        {pairCategory.map((pair, index) => (
           <CheckableTag
-            key={pair.key}
-            checked={selectedTag === pair.symbol}
-            onChange={(checked) => handleChange(pair.symbol, checked)}
+            key={index}
+            checked={selectedTag === pair}
+            onChange={(checked) => handleChange(pair, checked)}
           >
-            {pair.name}
+            {t(pair)}
           </CheckableTag>
         ))}
       </Space>
+      <div style={{ display: 'flex', gap: 20, flexDirection: 'column', marginTop: 20}}>
+        {pairItems.map((pair, index) => (
+          <PairCoinItem pairItem={pair} key={index} />
+        ))}
+      </div>
     </>
   );
 }

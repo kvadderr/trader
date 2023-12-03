@@ -4,14 +4,26 @@ import { Menu } from '../@types/constants/Menu'
 export const menuItem: Menu[] = [
   {
     id: 1,
-    name: "Главная",
+    name: "home",
     icon: faHouse,
     key: '/'
   },
   {
     id: 2,
-    name: "Профиль",
+    name: "profile",
     icon: faDollar,
-    key: '/price'
+    key: '/profile'
+  },
+  {
+    id: 3,
+    name: "referral",
+    icon: faDollar,
+    key: '/referral'
+  },
+  {
+    id: 4,
+    name: "settings",
+    icon: faDollar,
+    key: '/settings'
   }
 ]

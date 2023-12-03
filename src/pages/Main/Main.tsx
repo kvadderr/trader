@@ -1,68 +1,60 @@
 import s from './Main.module.scss'
 import TradingViewWidget from '../../components/Home/TradingViewWidget/TradingViewWidget'
 import PairCoin from '../../components/Home/PairCoin/PairCoin';
-import { Tabs, Typography } from 'antd';
-const { Text } = Typography;
+import { Tabs, Result } from 'antd';
 import type { TabsProps } from 'antd';
-import { Result } from 'antd';
+import { useTranslation } from 'react-i18next';
+
 
 const onChange = (key: string) => {
   console.log(key);
 };
 
-const items: TabsProps['items'] = [
-  {
-    key: '1',
-    label: 'Открытые позиции',
-    children: <Result
-      status="404"
-      title="В разработке"
-    />,
-  },
-  {
-    key: '2',
-    label: 'Отложенные ордера',
-    children: <Result
-      status="404"
-      title="В разработке"
-    />,
-  },
-  {
-    key: '3',
-    label: 'История заказов',
-    children: <Result
-      status="404"
-      title="В разработке"
-    />,
-  },
-  {
-    key: '4',
-    label: 'Торговая история',
-    children: <Result
-      status="404"
-      title="В разработке"
-    />,
-  },
-];
-
-const itemsPair: TabsProps['items'] = [
-  {
-    key: '1',
-    label: 'USD',
-    children: <PairCoin />,
-  },
-  {
-    key: '2',
-    label: 'EUR',
-    children: <PairCoin />
-  },
-];
-
 const Main = () => {
+
+  const { t } = useTranslation();
+
+  const items: TabsProps['items'] = [
+    {
+      key: '1',
+      label: t('active_order'),
+      children: <Result
+        status="404"
+        title="В разработке"
+      />,
+    },
+    {
+      key: '2',
+      label: t('wait_order'),
+      children: <Result
+        status="404"
+        title="В разработке"
+      />,
+    },
+    {
+      key: '3',
+      label: t('order_history'),
+      children: <Result
+        status="404"
+        title="В разработке"
+      />,
+    },
+    {
+      key: '4',
+      label: t('trade_history'),
+      children: <Result
+        status="404"
+        title="В разработке"
+      />,
+    },
+  ];
+
   return (
     <div className={s.container}>
       <div className={s.containerMain}>
-        <TradingViewWidget />
+        <div style={{flex: 1}}>
+          <TradingViewWidget />
+        </div>  
         <div>
           <PairCoin />
         </div>

@@ -1,0 +1,22 @@
+{
+  "home": "Home",
+  "profile": "Profile",
+  "referral": "Referral",
+  "settings": "Settings",
+  "lng": "Change language",
+  "active_order": "Active order",
+  "wait_order": "Pending orders",
+  "order_history": "Order history",
+  "trade_history": "Trading history",
+
+  "crypt": "Ctypt",
+  "currency": "Currency",
+  "product": "Product",
+  "index": "Index",
+
+  "balance": "Final balance",
+  "available_funds": "Available funds",
+  "used_margin": "Used margin",
+  "available_margin": "Avialable margin",
+  "level_margin": "Margin level"
+}

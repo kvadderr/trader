@@ -1,4 +1,6 @@
-export const pairItems = [
+import { PairItem } from "../@types/constants/PairItem";
+
+export const pairItems: PairItem[] = [
   {
     name: "BTC/USD",
     key: "USD",

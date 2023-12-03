@@ -2,25 +2,27 @@
 @import '../../styles/variables.scss';
 
 .container {
-  flex: 1;
+  height: 80px;
   display: flex;
-  flex-direction: column;
+  align-items: center;
   padding-inline: 140px;
+  justify-content: space-between;
 
   @include for-laptop {
     padding-inline: 20px;
   }
-
 }
 
-.containerMain {
+.menuContainer {
   display: flex;
-  height: 700px;
-  gap: 20px;
-  flex: 1;
+  gap: 40px;
 
   @include for-laptop {
-    flex-direction: column-reverse;
-    height: 400px;
+    display: none;
   }
+
+  .menuItem {
+    cursor: pointer;
+  }
+
 }
