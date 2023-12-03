@@ -1,0 +1,26 @@
+@import '../../../styles/mixins.scss';
+@import '../../../styles/variables.scss';
+
+.container {
+  position: fixed;
+  align-self: center;
+  top: 0;
+  z-index: 2;
+  display: flex;
+  gap: 20px;
+  background-color: $color-primary;
+  padding-inline: 40px;
+  padding-block: 10px;
+  border-end-end-radius: 15px;
+  border-end-start-radius: 15px;
+
+  @include for-laptop {
+    display: none;
+  }
+}
+
+.metricContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 10px
+}
